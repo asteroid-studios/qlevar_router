@@ -158,7 +158,9 @@ class MatchController {
         }
       }
     }
-    return newPath;
+
+    // Remove double slashes, see #111
+    return newPath.replaceAll('//', '/');
   }
 
   Future<QRouteInternal> _searchMatch() async {
